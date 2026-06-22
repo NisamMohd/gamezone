@@ -1,7 +1,9 @@
 import React from "react";
 import logo from "../assets/svg-logos.png";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+  const navigate = useNavigate()
   return (
     <div className="absolute top-0 left-0 w-full z-10 bg-white/10 backdrop-blur-md">
       <div className="flex justify-between items-center h-[15vh] px-4">
@@ -17,9 +19,10 @@ function Navbar() {
         </div>
 
         <div>
-          <button className="px-4 py-2 bg-blue-500 text-white rounded">
+          <button onClick={() => navigate("/login")} className="px-4 py-2 bg-blue-500 text-white rounded">
             Login
           </button>
+          
         </div>
       </div>
     </div>

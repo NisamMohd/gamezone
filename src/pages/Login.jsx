@@ -27,7 +27,8 @@ function Login() {
         {error && (
           <p className="text-red-500 text-sm">{error}</p>
         )}
-          <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Register</button>
+          <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button>
+          <a href="/register">Register</a>
         </div>
       </div>
     </div>
