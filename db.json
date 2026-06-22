@@ -1,41 +1,5 @@
 {
-  "users": [
-    {
-      "name": "abdulla",
-      "email": "nisammohd514@gmail.com",
-      "passwd": "1234",
-      "cpasswd": "1234",
-      "id": "mytJ-17E2sU"
-    },
-    {
-      "name": "Nisam_Mohd",
-      "email": "nisamalr007@gmail.com",
-      "passwd": "1234",
-      "cpasswd": "1234",
-      "id": "DJbO-HjhRt8"
-    },
-    {
-      "name": "abdulla",
-      "email": "nisammohd514@gmail.com",
-      "passwd": "1234",
-      "cpasswd": "1234",
-      "id": "tjz1zqKLVfw"
-    },
-    {
-      "name": "adsf",
-      "email": "nisamalr007@gmail.com",
-      "passwd": "1234",
-      "cpasswd": "1234",
-      "id": "NJN5vmCguRk"
-    },
-    {
-      "name": "nithin",
-      "email": "nisamalr007@gmail.com",
-      "passwd": "1234",
-      "cpasswd": "1234",
-      "id": "mHK1quAnDl0"
-    }
-  ],
+  "users": [],
   "products": [],
   "orders": [],
   "$schema": "./node_modules/json-server/schema.json"
