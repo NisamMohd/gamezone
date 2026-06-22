@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
+import Playstation from "../components/ProductSlider";
 
 function Home() {
   return (
@@ -8,6 +9,7 @@ function Home() {
       <div className="h-screen flex flex-col">
         <Navbar />
         <Hero />
+        <Playstation/>
       </div>
     </div>
   );
