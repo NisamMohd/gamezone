@@ -13,8 +13,10 @@ export default function Slider({ title, items }) {
 
   return (
     <section className="mb-10">
-      <h1 className="text-2xl font-bold mb-4">{title}</h1>
-
+      <div className="flex justify-between mx-4 my-2">
+        <h1 className="text-2xl font-bold mb-4  ">{title}</h1>
+        <button className="text-black px-4 py-2  bg-slate-300 rounded-xl">more..</button>
+      </div>
       <div className="relative">
         <button
           onClick={() => scroll("left")}
@@ -25,12 +27,12 @@ export default function Slider({ title, items }) {
 
         <div
           ref={sliderRef}
-          className="flex gap-4 overflow-x-auto scroll-smooth px-12"
+          className="flex gap-4 overflow-x-auto scroll-smooth px-12 no-scrollbar"
         >
           {items.map((item) => (
             <div
               key={item.id}
-              className="min-w-[250px] bg-gray-100 p-4 rounded-lg flex-shrink-0"
+              className="min-w-[250px] bg-slate-300 p-4 rounded-lg flex-shrink-0"
             >
               <img
                 src={item.image}
