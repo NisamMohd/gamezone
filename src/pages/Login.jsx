@@ -28,7 +28,7 @@ function Login() {
           <p className="text-red-500 text-sm">{error}</p>
         )}
           <button className="bg-blue-500 text-white py-2 rounded hover:bg-blue-600">Login</button>
-          <a href="/register">Register</a>
+          <a href="/register">dont't have an account ,register</a>
         </div>
       </div>
     </div>
