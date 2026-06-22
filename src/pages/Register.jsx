@@ -19,36 +19,15 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e) =>{
+    const hasEmptyField = Object.values(formData).some(
+      (value) => value.trim() === ""
+    );
 
-      e.preventDefault();
-
-
-    if(!formData.name){
-        setError("All fields are required")
-        return error
+    if(hasEmptyField){
+      setError("All fields are required");
+      return;
     }
-    if(!formData.email){
-        setError("All fields are required")
-        return error
-    }
-    if(!formData.passwd){
-        setError("All fields are required")
-        return error
-    }
-    if(!formData.cpasswd){
-        setError("All fields are required")
-        return error
-    }
-    if(formData.passwd != formData.cpasswd){
-        setError("Passwords should be match")
-        return error
-    }
-  const res=  registerApi(formData)
-
-  console.log('kkkkkkkkkk',res);
-  
-
   }
 
   return (
