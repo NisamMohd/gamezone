@@ -1,9 +1,10 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Rs from "../assets/indian-rupee.svg";
 
 export default function Slider({ title, items }) {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const sliderRef = useRef(null);
 
   const scroll = (direction) => {
@@ -17,7 +18,12 @@ export default function Slider({ title, items }) {
     <section className="mb-10">
       <div className="flex justify-between mx-4 my-2">
         <h1 className="text-2xl font-bold mb-4  ">{title}</h1>
-        <button className="text-black px-4 py-2  bg-slate-300 rounded-xl" onClick={() => navigate("/products")}>more..</button>
+        <button
+          className="text-black px-4 py-2  bg-slate-300 rounded-xl"
+          onClick={() => navigate("/products")}
+        >
+          more..
+        </button>
       </div>
       <div className="relative">
         <button
@@ -38,13 +44,18 @@ export default function Slider({ title, items }) {
             >
               <img
                 src={item.image}
-                alt={item.title}
-                className="w-full h-40 object-cover rounded"
+                className="w-60 h-60 object-cover rounded flex justify-center"
               />
+                <h3 className="mt-2 font-semibold max-w-60">{item.title}</h3>
 
-              <h3 className="mt-2 font-semibold">
-                {item.title}
-              </h3>
+              <div className="flex-col justify-between  pr-0.5 ">
+
+                <div className="flex items-center">
+                  <img src={Rs} alt="RS:" className="size-7 pt-1" />
+                  <p className="text-3xl">{item.price}</p>
+                </div>
+                <button>Add to cart</button>
+              </div>
             </div>
           ))}
         </div>
