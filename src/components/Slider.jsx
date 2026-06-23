@@ -1,7 +1,9 @@
 import { useRef } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 export default function Slider({ title, items }) {
+  const navigate = useNavigate()
   const sliderRef = useRef(null);
 
   const scroll = (direction) => {
@@ -15,7 +17,7 @@ export default function Slider({ title, items }) {
     <section className="mb-10">
       <div className="flex justify-between mx-4 my-2">
         <h1 className="text-2xl font-bold mb-4  ">{title}</h1>
-        <button className="text-black px-4 py-2  bg-slate-300 rounded-xl">more..</button>
+        <button className="text-black px-4 py-2  bg-slate-300 rounded-xl" onClick={() => navigate("/products")}>more..</button>
       </div>
       <div className="relative">
         <button
