@@ -1,32 +1,100 @@
 import axios from "axios";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 
 const AuthContext = createContext()
 
 export function AuthProvider({ children }){
-    async function login(credentials){
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState('')
+    
+    
+    const [user, setUser] = useState(()=>{
+        const stored = localStorage.getItem("user")
+        return stored ? JSON.parse(stored) : null
+    })
 
-        try{
-            const res = await axios.get(
-                `http://localhost:3001/users?email=${credentials.email}&password=${credentials.passwd}`
-            )
+    async function register(userinfo) {
+    setIsLoading(true);
+    setError("");
 
-            const data = res.data
+    try {
+        const res = await axios.get(
+            `http://localhost:3001/users?email=${userinfo.email}`
+        );
 
-            if(data.length > 0){
-                const loggedUser = data[0]
-            }
-        }catch(err){
-            alert(err.message)
+        const isUserExist = res.data;
+
+        if (isUserExist.length > 0) {
+            setError("Email already exists. Try logging in.");
+            return { success: false };
         }
+
+        const reg = await axios.post(
+            "http://localhost:3001/users",
+            {
+                ...userinfo,
+                createdAt: new Date().toISOString(),
+            }
+        );
+
+        const newUser = reg.data;
+
+        setUser(newUser);
+        localStorage.setItem("user", JSON.stringify(newUser));
+
+        return { success: true };
+    } catch (err) {
+        setError(err.message || "Registration failed");
+        return { success: false };
+    } finally {
+        setIsLoading(false);
+    }
+
+    }
+
+   async function login({ email, password }) {
+    setIsLoading(true);
+    setError("");
+
+    try {
+        const res = await axios.get(
+            `http://localhost:3001/users?email=${email}&password=${password}`
+        );
+
+        const data = res.data;
+
+        if (data.length === 0) {
+            setError("Invalid email or password");
+            return { success: false };
+        }
+
+        const loggedUser = data[0];
+
+        setUser(loggedUser);
+        localStorage.setItem("user", JSON.stringify(loggedUser));
+
+        return { success: true };
+    } catch (err) {
+        setError(err.message || "Login failed");
+        return { success: false };
+    } finally {
+        setIsLoading(false);
+    }
+}
+    
     return(
         <AuthContext.Provider
         value={{
-            login
+            user,
+            error,
+            isLoading,
+            setError,
+            login,
+            register
         }}
         >
             {children}
         </AuthContext.Provider>
-    )}
+    )
 }
