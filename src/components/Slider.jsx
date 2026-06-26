@@ -40,7 +40,7 @@ export default function Slider({ title, items }) {
           {items.map((item) => (
             <div
               key={item.id}
-              className="min-w-[250px] bg-slate-300 p-4 rounded-lg flex-shrink-0"
+              className="min-w-62.5 bg-slate-300 p-4 rounded-lg shrink-0"
             >
               <img
                 src={item.image}
