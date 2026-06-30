@@ -1,5 +1,14 @@
 {
-  "users": [],
+  "users": [
+    {
+      "name": "Nisam Mohd",
+      "email": "nisammohd514@gmail.com",
+      "passwd": "nisam123",
+      "cpasswd": "nisam123",
+      "createdAt": "2026-06-30T12:42:47.525Z",
+      "id": "alaNGmwHVGU"
+    }
+  ],
   "products": [],
   "orders": [],
   "$schema": "./node_modules/json-server/schema.json"
