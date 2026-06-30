@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "../assets/svg-logos.png";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
+  const {user,logout} = useAuth()
   const navigate = useNavigate();
   return (
     <div className="absolute top-0 left-0 w-full z-10 bg-white/10 backdrop-blur-md">
@@ -39,12 +41,20 @@ function Navbar() {
         </div>
 
         <div>
+          {user === null ?
           <button
             onClick={() => navigate("/login")}
             className="px-4 py-2 bg-blue-500 text-white rounded"
           >
             Login
+          </button>: 
+          <button
+            onClick={logout}
+            className="px-4 py-2 bg-blue-500 text-white rounded"
+          >
+            Logout
           </button>
+          }
         </div>
       </div>
     </div>
