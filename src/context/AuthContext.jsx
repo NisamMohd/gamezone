@@ -1,5 +1,6 @@
 import axios from "axios";
-import { createContext, useState } from "react";
+import { createContext, useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 
 const AuthContext = createContext()
@@ -42,6 +43,7 @@ export function AuthProvider({ children }){
 
         setUser(newUser);
         localStorage.setItem("user", JSON.stringify(newUser));
+        
 
         return { success: true };
     } catch (err) {
@@ -82,6 +84,11 @@ export function AuthProvider({ children }){
         setIsLoading(false);
     }
 }
+
+function logout(){
+    setUser(null)
+    localStorage.removeItem("user")
+}
     
     return(
         <AuthContext.Provider
@@ -91,10 +98,15 @@ export function AuthProvider({ children }){
             isLoading,
             setError,
             login,
-            register
+            register,
+            logout
         }}
         >
             {children}
         </AuthContext.Provider>
     )
+}
+
+export function useAuth(){
+    return useContext(AuthContext)
 }
