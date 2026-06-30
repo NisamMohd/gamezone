@@ -1,6 +1,6 @@
 import React from "react";
 import logo from "../assets/svg-logos.png";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 function Navbar() {
@@ -14,30 +14,26 @@ function Navbar() {
         </div>
 
         <div className="flex items-center gap-6 text-black">
-          <a
-            href=""
+          <Link to='/'
             className=" hover:[text-shadow:0_0_8px_rgba(217,119,6,1),0_0_8px_rgba(217,119,6,1)]"
           >
             HOME
-          </a>
-          <a
-            href=""
+          </Link>
+          <Link to='/products'
             className="hover:[text-shadow:0_0_8px_rgba(217,119,6,1),0_0_8px_rgba(217,119,6,1)]"
           >
-            ABOUT
-          </a>
-          <a
-            href=""
+            PRODUCTS
+          </Link>
+          <Link to='/cart'
             className="hover:[text-shadow:0_0_8px_rgba(217,119,6,1),0_0_8px_rgba(217,119,6,1)]"
           >
-            SERVICES
-          </a>
-          <a
-            href=""
+            CART
+          </Link>
+          <Link to='/account'
             className="hover:[text-shadow:0_0_8px_rgba(217,119,6,1),0_0_8px_rgba(217,119,6,1)]"
           >
-            CONTACT
-          </a>
+            ACCOUNT
+          </Link>
         </div>
 
         <div>
