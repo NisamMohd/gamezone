@@ -14,14 +14,14 @@ function Login() {
       setError('Password must be 8 charector or longer')
       return
     }
-    const res = await login({email,password:passwd})
+    const res = await login({email,passwd})
     
     if(!res.success){
       setEmail('')
       setPasswd('')
       return
     }else{
-      navigate('/home')
+      navigate('/')
     }
   }
 

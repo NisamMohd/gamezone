@@ -55,13 +55,13 @@ export function AuthProvider({ children }){
 
     }
 
-   async function login({ email, password }) {
+   async function login({ email, passwd }) {
     setIsLoading(true);
     setError("");
 
     try {
         const res = await axios.get(
-            `http://localhost:3001/users?email=${email}&password=${password}`
+            `http://localhost:3001/users?email=${email}&passwd=${passwd}`
         );
 
         const data = res.data;
@@ -77,6 +77,7 @@ export function AuthProvider({ children }){
         localStorage.setItem("user", JSON.stringify(loggedUser));
 
         return { success: true };
+
     } catch (err) {
         setError(err.message || "Login failed");
         return { success: false };
