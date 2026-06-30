@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import home1 from "../assets/hero.jpg";
+import home1 from "../assets/home.png";
 import titlenew from "../assets/titlenew.png";
 
 function Hero() {
